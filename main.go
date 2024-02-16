@@ -26,5 +26,5 @@ func main() {
 
 	// connect to database
 	config.ConnectDB()
-	r.Run()
+	r.Run(config.GetConfig("PORT"))
 }
