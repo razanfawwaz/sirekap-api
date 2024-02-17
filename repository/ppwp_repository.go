@@ -15,7 +15,7 @@ func NewPpwpRepository(db *sql.DB) *PpwpRepository {
 }
 
 func (r *PpwpRepository) GetAllData(limit int, offset int) ([]domain.ReportData, error) {
-	query := `SELECT kode, provinsi_kode, provinsi_nama, kabupaten_kota_kode, kabupaten_kota_nama, kecamatan_kode, kecamatan_nama, kelurahan_desa_kode, kelurahan_desa_nama, tps, suara_paslon_1, suara_paslon_2, suara_paslon_3, suara_sah, suara_tidak_sah, suara_total, pemilih_dpt_j, pemilih_dpt_l, pemilih_dpt_p, pengguna_dpt_j, pengguna_dpt_l, pengguna_dpt_p, pengguna_dptb_j, pengguna_dptb_l, pengguna_dptb_p, pengguna_total_j, pengguna_total_l, pengguna_total_p, pengguna_non_dpt_j, pengguna_non_dpt_l, pengguna_non_dpt_p, psu, ts, status_suara, status_adm, url_page,url_api  FROM ppwp_tps WHERE suara_paslon_1 is not null LIMIT $1 OFFSET $2`
+	query := `SELECT kode, provinsi_kode, provinsi_nama, kabupaten_kota_kode, kabupaten_kota_nama, kecamatan_kode, kecamatan_nama, kelurahan_desa_kode, kelurahan_desa_nama, tps, suara_paslon_1, suara_paslon_2, suara_paslon_3, suara_sah, suara_tidak_sah, suara_total, pemilih_dpt_j, pemilih_dpt_l, pemilih_dpt_p, pengguna_dpt_j, pengguna_dpt_l, pengguna_dpt_p, pengguna_dptb_j, pengguna_dptb_l, pengguna_dptb_p, pengguna_total_j, pengguna_total_l, pengguna_total_p, pengguna_non_dpt_j, pengguna_non_dpt_l, pengguna_non_dpt_p, chasil_hal_1,chasil_hal_2,chasil_hal_3, psu, ts, status_suara, status_adm, url_page,url_api  FROM ppwp_tps WHERE suara_paslon_1 is not null LIMIT $1 OFFSET $2`
 
 	rows, err := r.db.Query(query, limit, offset)
 	if err != nil {
@@ -61,6 +61,9 @@ func (r *PpwpRepository) GetAllData(limit int, offset int) ([]domain.ReportData,
 			&ppwp.DataPemilih.PenggunaNonDptJ,
 			&ppwp.DataPemilih.PenggunaNonDptL,
 			&ppwp.DataPemilih.PenggunaNonDptP,
+			&ppwp.CHasil.CHasil1,
+			&ppwp.CHasil.CHasil2,
+			&ppwp.CHasil.CHasil3,
 			&ppwp.Psu,
 			&ppwp.Ts,
 			&ppwp.StatusSuara,

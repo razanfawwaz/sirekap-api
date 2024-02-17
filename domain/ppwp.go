@@ -87,16 +87,23 @@ type DataPemilih struct {
 	PenggunaNonDptP *int `json:"pengguna_non_dpt_p,omitempty"`
 }
 
+type GambarCHasil struct {
+	CHasil1 *string `json:"chasil_hal_1,omitempty"`
+	CHasil2 *string `json:"chasil_hal_2,omitempty"`
+	CHasil3 *string `json:"chasil_hal_3,omitempty"`
+}
+
 type ReportData struct {
-	Kode        *string     `json:"kode,omitempty"`
-	Daerah      Daerah      `json:"daerah,omitempty"`
-	HasilPaslon HasilPaslon `json:"hasil_paslon,omitempty"`
-	DataSuara   DataSuara   `json:"data_suara,omitempty"`
-	DataPemilih DataPemilih `json:"data_pemilih,omitempty"`
-	UrlPage     *string     `json:"url_page,omitempty"`
-	UrlApi      *string     `json:"url_api,omitempty"`
-	Psu         *string     `json:"psu,omitempty"`
-	Ts          *string     `json:"ts,omitempty"`
-	StatusAdm   bool        `json:"status_adm,omitempty"`
-	StatusSuara bool        `json:"status_suara,omitempty"`
+	Kode        *string      `json:"kode,omitempty"`
+	Daerah      Daerah       `json:"daerah,omitempty"`
+	HasilPaslon HasilPaslon  `json:"hasil_paslon,omitempty"`
+	DataSuara   DataSuara    `json:"data_suara,omitempty"`
+	DataPemilih DataPemilih  `json:"data_pemilih,omitempty"`
+	CHasil      GambarCHasil `json:"gambar_chasil,omitempty"`
+	UrlPage     *string      `json:"url_page,omitempty"`
+	UrlApi      *string      `json:"url_api,omitempty"`
+	Psu         *string      `json:"psu,omitempty"`
+	Ts          *string      `json:"ts,omitempty"`
+	StatusAdm   bool         `json:"status_adm,omitempty"`
+	StatusSuara bool         `json:"status_suara,omitempty"`
 }
