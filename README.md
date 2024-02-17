@@ -7,9 +7,11 @@ API ini menyediakan data Pemilu 2024 yang dikumpulkan oleh [Data Pemilu](https:/
 Untuk menggunakan API ini dapat menggunakan endpoint berikut:
 
 ```
-GET /api/v1/ppwp?limit=xx
+GET /api/v1/ppwp?limit=xx&offset=xx
 ```
-Endpoint di atas akan menampilkan data dari TPS yang sudah memiliki data perhitungan suara. Jangan lupa untuk mengganti `xx` dengan jumlah data yang ingin ditampilkan.
+Endpoint di atas akan menampilkan data dari TPS yang sudah memiliki data perhitungan suara. 
+
+Agar dapat menggunakan data, jangan lupa untuk memakai query parameter `limit` dan pastikan untuk mengganti `xx` dengan jumlah data yang ingin ditampilkan.
 
 ## Cara Menjalankan
 Clone repository ini dengan cara:
