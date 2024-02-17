@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  pantau-api:
+    image: pantau-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8008:8008"
