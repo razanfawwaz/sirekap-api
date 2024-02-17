@@ -10,13 +10,12 @@ import (
 
 func GetAllData(c *gin.Context) {
 	// limit & offset from query params is int
-	limit, offset := c.Query("limit"), c.Query("offset")
+	limit := c.Query("limit")
 	// convert limit & offset to int
 	limitInt, _ := strconv.Atoi(limit)
-	offsetInt, _ := strconv.Atoi(offset)
 
 	// if limit & offset is not provided, return error
-	if limit == "" || offset == "" {
+	if limit == "" {
 		response := config.BaseResponse{
 			Data:    nil,
 			Status:  http.StatusBadRequest,
@@ -27,7 +26,7 @@ func GetAllData(c *gin.Context) {
 		return
 	}
 
-	data, err := application.GetAllData(limitInt, offsetInt)
+	data, err := application.GetAllData(limitInt)
 	if err != nil {
 		response := config.BaseResponse{
 			Data:    nil,
