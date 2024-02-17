@@ -6,10 +6,10 @@ import (
 	"github.com/razanfawwaz/sirekap-api/repository"
 )
 
-func GetAllData(limit int) ([]domain.ReportData, error) {
+func GetAllData(limit int, offset int) ([]domain.ReportData, error) {
 	db := config.GetDB()
 	ppwpRepository := repository.NewPpwpRepository(db)
-	ppwp, err := ppwpRepository.GetAllData(limit)
+	ppwp, err := ppwpRepository.GetAllData(limit, offset)
 	if err != nil {
 		return nil, err
 	}

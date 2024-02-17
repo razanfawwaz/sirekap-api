@@ -11,8 +11,10 @@ import (
 func GetAllData(c *gin.Context) {
 	// limit & offset from query params is int
 	limit := c.Query("limit")
+	offset := c.Query("offset")
 	// convert limit & offset to int
 	limitInt, _ := strconv.Atoi(limit)
+	offsetInt, _ := strconv.Atoi(offset)
 
 	// if limit & offset is not provided, return error
 	if limit == "" {
@@ -26,7 +28,7 @@ func GetAllData(c *gin.Context) {
 		return
 	}
 
-	data, err := application.GetAllData(limitInt)
+	data, err := application.GetAllData(limitInt, offsetInt)
 	if err != nil {
 		response := config.BaseResponse{
 			Data:    nil,
